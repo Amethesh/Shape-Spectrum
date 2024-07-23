@@ -1,0 +1,13 @@
+.grid-item {
+  background-color: #b3d9ff; /* Adjust the background color */
+  border: 1px solid #0073e6; /* Adjust the border color */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px; /* Adjust the font size */
+}
+
+.grid-container {
+  width: 600px;
+  height: 600px;
+}
