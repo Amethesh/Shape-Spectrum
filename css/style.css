@@ -1,0 +1,57 @@
+body {
+  background-color: #f7f9f2;
+}
+.grid-container {
+  width: 600px;
+  height: 600px;
+  border-radius: 30px;
+  padding: 20px;
+  background: #f7f9f2;
+  box-shadow: 20px 20px 60px #d2d4ce, -20px -20px 60px #ffffff;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+.active {
+  background-color: #021526; /* Adjust the background color */
+  /* border: 1px solid white; Adjust the border color */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px; /* Adjust the font size */
+}
+
+.grid-item {
+  /* background-color: #ffffff; */
+  padding: 10px;
+}
+
+.shapes-container {
+  width: 300px;
+  height: 600px;
+  border-radius: 30px;
+  padding: 20px;
+  background: #f7f9f2;
+  box-shadow: 20px 20px 60px #d2d4ce, -20px -20px 60px #ffffff;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  overflow: auto; /* Enable scrolling if content overflows */
+}
+
+.shape-wrapper {
+  display: inline-block;
+  margin: 10px;
+}
+
+.shape-wrapper > svg {
+  width: 80px; /* Adjusted width to fit within the container */
+  height: 80px; /* Ensure consistent height */
+}
+
+.full-container {
+  display: flex;
+  gap: 20px;
+  justify-content: space-around;
+}
