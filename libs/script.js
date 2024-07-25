@@ -1,7 +1,7 @@
 let result = 2;
 let itemSelected = null;
 let itemRemoved = null;
-let level = 5;
+let level = 1;
 let activeSolutionGrid = [];
 let extraparameter = [];
 let leveData = { attempts: [], answerArray: [], starttime: [], endTime: [] };
