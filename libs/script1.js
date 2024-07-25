@@ -46,7 +46,7 @@ const gridConfig = {
     { shape: "pentagon", color: "rgb(108, 131, 255)" },
     { shape: "circle", color: "rgb(33, 156, 144)" },
     { shape: "star", color: "rgb(255, 199, 0)" },
-    { shape: "flower", color: "rgb(142, 62, 99)" },
+    { shape: "flower", color: "rgb(187, 233, 255" },
   ],
 };
 let result = 2;
@@ -97,7 +97,12 @@ function createButtons() {
   submit.id = "submit";
   submit.textContent = "submit";
   submit.onclick = () => {
-    const answer = checkConditions(activeSolutionGrid);
+    const answer = checkConditions(gridConfig.activeShapes); // Output: true or false based on the conditions
+    if (answer) {
+      showModal();
+    } else {
+      shakeGridContainer();
+    }
     console.log(answer, activeSolutionGrid);
   };
   buttonArea.append(submit);
@@ -172,7 +177,38 @@ function execute() {
   createButtons();
   console.log(gridDetails); // Logs the grid details
   populateShapesContainer(gridConfig.availableShapes);
-  console.log(checkConditions(gridConfig.activeShapes)); // Output: true or false based on the conditions
+}
+
+function showModal() {
+  const modal = document.getElementById("modal");
+  const closeButton = document.querySelector(".close-button");
+  const nextButton = document.getElementById("next-button");
+
+  modal.style.display = "block";
+
+  closeButton.onclick = function () {
+    modal.style.display = "none";
+  };
+
+  nextButton.onclick = function () {
+    // Logic to proceed to the next level
+    modal.style.display = "none";
+  };
+
+  window.onclick = function (event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  };
+}
+
+function shakeGridContainer() {
+  const gridContainer = document.getElementById("grid-container");
+  gridContainer.classList.add("shake");
+
+  setTimeout(() => {
+    gridContainer.classList.remove("shake");
+  }, 500); // Adjust the duration to match the shake animation duration
 }
 
 // Usage
