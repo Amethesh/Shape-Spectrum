@@ -202,7 +202,7 @@ const gridConfig = {
     availableShapes: [
       { shape: "diamond", color: " rgb(228, 255, 120)" },
       { shape: "three", color: " rgb(108, 131, 255)" },
-      { shape: "circle", color: " rgb(108, 131, 255)" },
+      { shape: "circle", color: " rgb(242, 127, 127)" },
       { shape: "three", color: " rgb(152, 246, 144" },
       { shape: "pentagon", color: " rgb(228, 255, 120)" },
       { shape: "diamond", color: "rgb(108, 131, 255)" },
@@ -210,7 +210,6 @@ const gridConfig = {
       { shape: "three", color: " rgb(242, 127, 127)" },
       { shape: "circle", color: "rgb(108, 131, 255)" },
       { shape: "three", color: " rgb(228, 255, 120)" },
-      { shape: "pentagon", color: "rgb(228, 255, 120)" },
       { shape: "three", color: "grey" },
     ],
   },

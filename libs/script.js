@@ -1,10 +1,12 @@
 let result = 2;
 let itemSelected = null;
 let itemRemoved = null;
-let level = 1;
+let level = 5;
 let activeSolutionGrid = [];
 let extraparameter = [];
+let leveData = { attempts: [], answerArray: [], starttime: [], endTime: [] };
 let isFirstLoad = true; // Add this flag
+let attempts = 1;
 
 function areAllActiveGridsFilled(grid, activeGrids) {
   for (let i = 0; i < activeGrids.length; i++) {
@@ -92,6 +94,20 @@ function createButtons() {
   submit.disabled = true; // Initially disabled
   submit.onclick = () => {
     const result = checkConditions(activeSolutionGrid) ? 1 : 0;
+    if (result == 1) {
+      leveData.endTime = "End time: " + new Date();
+      leveData.attempts = attempts;
+      leveData.answerArray = activeSolutionGrid;
+      extraparameter.push(leveData);
+      leveData = {
+        attempts: [],
+        answerArray: [],
+        starttime: [],
+        endTime: [],
+      };
+      console.log(extraparameter);
+    }
+
     if (level <= 7) {
       showPopup(null, result);
     }
@@ -300,6 +316,7 @@ function showPopup(dynamicText, result) {
       document.body.innerHTML = "";
       createIndex();
       execute(level);
+      attempts = 1;
       overlay.style.display = "none";
     };
   } else if (result == 0 && result != null) {
@@ -311,6 +328,8 @@ function showPopup(dynamicText, result) {
       document.body.innerHTML = "";
       createIndex();
       execute(level);
+      attempts++;
+      console.log(attempts);
       overlay.style.display = "none";
     };
   }
@@ -322,6 +341,7 @@ function showPopup(dynamicText, result) {
 }
 
 function execute(level) {
+  leveData.starttime = "Start time: " + new Date();
   activeSolutionGrid = deepCopy(gridConfig[level].activeShapes);
   createLayout(gridConfig[level]);
   createButtons();
